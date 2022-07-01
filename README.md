@@ -71,7 +71,7 @@ Python Unit Tests
 
 Your shell should work like this in interactive mode:
 
-\`python
+
     $ ./console.py
     (hbnb) help
 
@@ -83,11 +83,11 @@ Your shell should work like this in interactive mode:
     (hbnb) 
     (hbnb) quit
     $
-\`
+
 
 But also in non-interactive mode: (like the Shell project in C)
 
-\`python
+
 
     $ echo "help" | ./console.py
     (hbnb)
@@ -108,7 +108,7 @@ But also in non-interactive mode: (like the Shell project in C)
     EOF  help  quit
     (hbnb) 
     $
-\`
+
 
 All tests should also pass in non-interactive mode: $ echo "python3 -m unittest discover tests" | bash
 
