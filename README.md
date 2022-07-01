@@ -71,7 +71,7 @@ Python Unit Tests
 
 Your shell should work like this in interactive mode:
 
-\`python3
+\`python
     $ ./console.py
     (hbnb) help
 
@@ -87,7 +87,7 @@ Your shell should work like this in interactive mode:
 
 But also in non-interactive mode: (like the Shell project in C)
 
-\`python3
+\`python
 
     $ echo "help" | ./console.py
     (hbnb)
