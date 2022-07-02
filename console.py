@@ -27,14 +27,9 @@ class HBNBCommand(cmd.Cmd):
         if not (args):
             print("** class name missing **")
         elif args not in storage.class_arb():
-            print(args)
-            #print(classes.keys())
             print("** class doesn't exist **")
         else:
-            print("Save")
-            print(args)
             ins = storage.class_arb()[args]()
-            print(type(ins))
             ins.save()
             print(ins.id)
 
@@ -54,25 +49,6 @@ class HBNBCommand(cmd.Cmd):
     def do_updated(self, args):
         """Updates an instance based on the class name and id by adding or updating attribute"""
         pass
-
-    """def accept_class(self):
-        from models.user import User
-        from models.state import State
-        from models.city import City
-        from models.place import Place
-        from models.amenity import Amenity
-        from models.review import Review
-
-        accept_class = { 'BaseModel': BaseModel,
-                    'User': User,
-                    'Place': Place,
-                    'State': State,
-                    'City': City, 
-                    'Amenity': Amenity, 
-                    'Review': Review
-                    }
-
-        return accept_class"""
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
