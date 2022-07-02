@@ -40,12 +40,28 @@ class FileStorage:
     def reload(self):
         """ Public method to reload all the objects saved"""
         from models.base_model import BaseModel
+        from models.user import User
+        from models.state import State
+        from models.city import City
+        from models.amenity import Amenity
+        from models.place import Place
+        from models.review import Review
+
+        class_arb = {
+                "BaseModel": BaseModel,
+                "User": User,
+                "State": State,
+                "City": City,
+                "Amenity": Amenity,
+                "Place": Place,
+                "Review": Review}
+
         my_dict = {}
         if os.path.exists(FileStorage.__file_path):
             with open(FileStorage.__file_path, encoding='utf-8') as F:
                 my_dict = json.loads(F.read())
         for key, value in my_dict.items():
-            my_dict[key] = BaseModel(value)
+            my_dict[key] = class_arb[value["__class__"]](value)
         FileStorage.__objects = my_dict
 
     def class_arb(self):
