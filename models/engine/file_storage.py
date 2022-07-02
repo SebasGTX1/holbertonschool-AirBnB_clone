@@ -23,8 +23,9 @@ class FileStorage:
         """Public method to create a new entry for the objects dict"""
         name = obj.__class__.__name__
         id_num = obj.id
+        key = name + "." + id_num
 
-        FileStorage.__objects[f"{name}.{id}"] = obj
+        FileStorage.__objects[key] = obj
 
     def save(self):
         """ Public method to save an object"""
@@ -38,6 +39,11 @@ class FileStorage:
 
     def reload(self):
         """ Public method to reload all the objects saved"""
+        from models.base_model import BaseModel
+        my_dict = {}
         if os.path.exists(FileStorage.__file_path):
             with open(FileStorage.__file_path, encoding='utf-8') as F:
-                FileStorage.__objects = json.loads(F.read())
+                my_dict = json.loads(F.read())
+        for key, value in my_dict.items():
+            my_dict[key] = BaseModel(value)
+        FileStorage.__objects = my_dict
