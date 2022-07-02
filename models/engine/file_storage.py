@@ -61,7 +61,7 @@ class FileStorage:
             with open(FileStorage.__file_path, encoding='utf-8') as F:
                 my_dict = json.loads(F.read())
         for key, value in my_dict.items():
-            my_dict[key] = class_arb[value["__class__"]](value)
+            my_dict[key] = class_arb[value["__class__"]](**value)
         FileStorage.__objects = my_dict
 
     def class_arb(self):
