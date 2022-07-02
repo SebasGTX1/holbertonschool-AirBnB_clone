@@ -1,8 +1,9 @@
 #!/usr/bin/python3
 """Console"""
 
+from ast import Store
 import cmd
-from click import prompt
+from click import argument, prompt
 from models.base_model import BaseModel
 from models import storage
 
@@ -35,12 +36,55 @@ class HBNBCommand(cmd.Cmd):
 
 
     def do_show(self, args):
-        """Prints the string representation of an instance based on the class name and id"""
-        pass
+        """
+        Prints the string representation of an instance based on the class name and id
+        Exmaple: (hbnb) show User a8d30b54-af4d-401e-ba78-4c11c8294264
+        """
+        if not (args):
+            print("** class name missing **")
+        else:
+            """Split args to get the class name(user) and the id(user_id)"""
+            arguments = args.split(' ')
+            if len(arguments) != 2:
+                print("** instance id missing **")
+            elif arguments[0] not in storage.class_arb():
+                print("** class doesn't exist **")
+            else:
+                for key, values in storage.all().items():
+                    #print(f"{key}: {values.id} : {values.created_at}")
+                    #print(f"{values.id} : {arguments[1]}")
+                    if arguments[1] == values.id:
+                        print(values)
+                        return
+                print("** no instance found **")
+
+            #print(args[0])
+            #print(args[1])
+            #print(lines[1])
 
     def do_destroy(self, args):
-        """Deletes an instance based on the class name and id"""
-        pass
+        """
+        Deletes an instance based on the class name and id
+        Exmaple: (hbnb) destroy User a8d30b54-af4d-401e-ba78-4c11c8294264
+        """
+        if not (args):
+            print("** class name missing **")
+        else:
+            """Split args to get the class name(user) and the id(user_id)"""
+            arguments = args.split(' ')
+            if len(arguments) != 2:
+                print("** instance id missing **")
+            elif arguments[0] not in storage.class_arb():
+                print("** class doesn't exist **")
+            else:
+                for key, values in storage.all().items():
+                    #print(f"{key}: {values.id} : {values.created_at}")
+                    #print(f"{values.id} : {arguments[1]}")
+                    if arguments[1] == values.id:
+                        del storage.all()[key]
+                        storage.save()
+                        return
+                print("** no instance found **")
 
     def do_all(self, args):
         """Prints all string representation of all instances based or not on the class name."""
