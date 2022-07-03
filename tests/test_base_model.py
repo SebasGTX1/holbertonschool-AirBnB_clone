@@ -10,5 +10,22 @@ class BaseTests(unittest.TestCase):
     """ Suite to test Base class """
     
     def setUp(self):
-        """Set Up for test"""
+        """
+        the setUp() method raises an exception
+        while the test is running
+        """
         pass
+
+    def tearDown(self): 
+        """
+        a tearDown() method that tidies up after
+        the test method has been run
+        """
+        pass
+
+    def test_instantiation(self):
+        """BaseModel instance attributes"""
+        base = BaseModel()
+        self.assertEqual(str(type(base)), "<class 'models.base_model.BaseModel'>")
+        self.assertIsInstance(base, BaseModel)
+        self.assertTrue(issubclass(type(base), BaseModel))
