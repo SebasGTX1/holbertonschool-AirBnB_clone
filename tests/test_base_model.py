@@ -38,3 +38,6 @@ class BaseTests(unittest.TestCase):
         base_dict = base.to_dict()
         base_dict = BaseModel(**base_dict)
         self.assertEqual(base_dict.to_dict(), base.to_dict())
+
+if __name__ == '__main__':
+    unittest.main()
