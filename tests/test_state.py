@@ -6,6 +6,7 @@ from models.base_model import BaseModel
 from models.state import State
 from models import storage
 from models.engine.file_storage import FileStorage
+import datetime
 
 
 class TestState(unittest.TestCase):
@@ -29,3 +30,19 @@ class TestState(unittest.TestCase):
         self.assertEqual(str(type(state)), "<class 'models.state.State'>")
         self.assertIsInstance(state, State)
         self.assertTrue(issubclass(type(state), BaseModel))
+
+    def test_state_Attributes(self):
+        """State Attributes exist"""
+        state = State()
+        self.assertTrue(hasattr(state, 'name'))
+        self.assertTrue(hasattr(state, 'id'))
+        self.assertTrue(hasattr(state, 'created_at'))
+        self.assertTrue(hasattr(state, 'updated_at'))
+
+    def test_state_types(self):
+        """State correct attributes' types"""
+        state = State()
+        self.assertIsInstance(state.name, str)
+        self.assertIsInstance(state.id, str)
+        self.assertIsInstance(state.created_at, datetime.datetime)
+        self.assertIsInstance(state.updated_at, datetime.datetime)
