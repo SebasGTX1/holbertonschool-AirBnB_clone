@@ -29,3 +29,12 @@ class BaseTests(unittest.TestCase):
         self.assertEqual(str(type(base)), "<class 'models.base_model.BaseModel'>")
         self.assertIsInstance(base, BaseModel)
         self.assertTrue(issubclass(type(base), BaseModel))
+
+    def test_instantiation_2(self):
+        """BaseModel instance attributes **kwards"""
+        base = BaseModel()
+        base.name = "Holberton"
+        base.my_number = 89
+        base_dict = base.to_dict()
+        base_dict = BaseModel(**base_dict)
+        self.assertEqual(base_dict.to_dict(), base.to_dict())
