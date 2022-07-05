@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Test Module for HBNBCommand class."""
-
 from console import HBNBCommand
 from models.engine.file_storage import FileStorage
 import unittest
@@ -8,6 +7,7 @@ import datetime
 from unittest.mock import patch
 import os
 from io import StringIO
+
 
 class TestHBNBCommand(unittest.TestCase):
     """Tests for HBNBCommand console"""
@@ -62,29 +62,35 @@ EOF  all  create  destroy  help  quit  show  update
         """Tests the help command."""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("help show")
-        s = "Prints the string representation of an instance based on the class name and id"
+        s1 = "Prints the string representation"
+        s2 = "of an instance based on the class name and id"
+        s = s1 + s2
         self.assertEqual(s, f.getvalue())
 
     def test_help_destroy(self):
         """Tests the help command."""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("help destroy")
-        s = "Deletes an instance based on the class name and id \n"+\
+        s = "Deletes an instance based on the class name and id \n"
         self.assertEqual(s, f.getvalue())
 
     def test_help_all(self):
         """Tests the help command."""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("help all")
-        s = "Prints the string representation of an instance based on the class name and id"
+        s1 = "Prints the string representation of"
+        s2 = "an instance based on the class name and id"
+        s = s1 + s2
         self.assertEqual(s, f.getvalue())
 
     def test_help_update(self):
         """Tests the help command."""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("help update")
-        s = 'Updates an instance based on the class name\n        '+\
-        'and id by adding or updating attribute\n        \n'
+        s1 = 'Updates an instance based on the class name\n        '
+
+        s2 = 'and id by adding or updating attribute\n        \n'
+        s = s1 + s2
         self.assertEqual(s, f.getvalue())
 
     def test_emptyline(self):
@@ -114,6 +120,7 @@ EOF  all  create  destroy  help  quit  show  update
         msg = f.getvalue()
         self.assertTrue(len(msg) == 0)
         self.assertEqual("", msg)
+
 
 if __name__ == "__main__":
     unittest.main()

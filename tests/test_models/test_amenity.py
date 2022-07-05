@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """ Test file for User class """
-
 import unittest
-
 from numpy import place
 from models import amenity
 from models.base_model import BaseModel
@@ -20,7 +18,7 @@ class TestAmenity(unittest.TestCase):
         """
         pass
 
-    def tearDown(self): 
+    def tearDown(self):
         """
         a tearDown() method that tidies up after
         the test method has been run
@@ -30,7 +28,8 @@ class TestAmenity(unittest.TestCase):
     def test_amenity_instantiation(self):
         """Amenity instance attributes"""
         amenity = Amenity()
-        self.assertEqual(str(type(amenity)), "<class 'models.amenity.Amenity'>")
+        s = "<class 'models.amenity.Amenity'>"
+        self.assertEqual(str(type(amenity)), s)
         self.assertIsInstance(amenity, Amenity)
         self.assertTrue(issubclass(type(amenity), BaseModel))
 
@@ -49,6 +48,7 @@ class TestAmenity(unittest.TestCase):
         self.assertIsInstance(amenity.id, str)
         self.assertIsInstance(amenity.created_at, datetime.datetime)
         self.assertIsInstance(amenity.updated_at, datetime.datetime)
+
 
 if __name__ == '__main__':
     unittest.main()

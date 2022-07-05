@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """ Test file for User class """
-
 import unittest
 from models.base_model import BaseModel
 from models.user import User
@@ -17,7 +16,7 @@ class TestUser(unittest.TestCase):
         """
         pass
 
-    def tearDown(self): 
+    def tearDown(self):
         """
         a tearDown() method that tidies up after
         the test method has been run
@@ -52,6 +51,7 @@ class TestUser(unittest.TestCase):
         self.assertIsInstance(user.id, str)
         self.assertIsInstance(user.created_at, datetime.datetime)
         self.assertIsInstance(user.updated_at, datetime.datetime)
+
 
 if __name__ == '__main__':
     unittest.main()

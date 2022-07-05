@@ -8,7 +8,7 @@ from models.engine.file_storage import FileStorage
 
 class BaseTests(unittest.TestCase):
     """ Suite to test Base class """
-    
+
     def setUp(self):
         """
         the setUp() method raises an exception
@@ -16,7 +16,7 @@ class BaseTests(unittest.TestCase):
         """
         pass
 
-    def tearDown(self): 
+    def tearDown(self):
         """
         a tearDown() method that tidies up after
         the test method has been run
@@ -26,7 +26,8 @@ class BaseTests(unittest.TestCase):
     def test_instantiation(self):
         """BaseModel instance attributes"""
         base = BaseModel()
-        self.assertEqual(str(type(base)), "<class 'models.base_model.BaseModel'>")
+        s = "<class 'models.base_model.BaseModel'>"
+        self.assertEqual(str(type(base)), s)
         self.assertIsInstance(base, BaseModel)
         self.assertTrue(issubclass(type(base), BaseModel))
 
@@ -38,6 +39,7 @@ class BaseTests(unittest.TestCase):
         base_dict = base.to_dict()
         base_dict = BaseModel(**base_dict)
         self.assertEqual(base_dict.to_dict(), base.to_dict())
+
 
 if __name__ == '__main__':
     unittest.main()
