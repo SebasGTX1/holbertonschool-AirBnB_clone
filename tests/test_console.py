@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Test Module for HBNBCommand class."""
-#from console import HBNBCommand
+from console import HBNBCommand
 from models.engine.file_storage import FileStorage
 import unittest
 import datetime
