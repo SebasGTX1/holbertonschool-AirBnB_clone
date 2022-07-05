@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """My first Console"""
-
 from ast import Store
 import cmd
 from click import argument, prompt
