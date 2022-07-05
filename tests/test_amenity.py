@@ -30,7 +30,7 @@ class TestAmenity(unittest.TestCase):
     def test_amenity_instantiation(self):
         """Amenity instance attributes"""
         amenity = Amenity()
-        self.assertEqual(str(type(amenity)), "<class 'models.amenity.BaseModel'>")
+        self.assertEqual(str(type(amenity)), "<class 'models.amenity.Amenity'>")
         self.assertIsInstance(amenity, Amenity)
         self.assertTrue(issubclass(type(amenity), BaseModel))
 
