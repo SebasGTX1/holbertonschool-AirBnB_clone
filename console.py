@@ -12,6 +12,17 @@ class HBNBCommand(cmd.Cmd):
     """ Command Interpreter"""
     prompt = "(hbnb) "
 
+    def precmd(self, args):
+        """method to preprocess the command input"""
+        commands = ['create', 'show', 'update', 'all', 'destroy']
+        if '.' in args and '(' in args and ')' in args:
+            clss = args.split('.')
+            comand = clss[1].split('(')
+            arguments = comand[1].split(')')
+            if clss[0] in storage.class_arb() and comand[0] in commands:
+                args = comand[0] + ' ' + clss[0] + ' ' + arguments[0]
+        return args
+
     def do_EOF(self, arg):
         """Type EOF to exit the command interpreter"""
         return True
