@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Console"""
+"""My first Console"""
 
 from ast import Store
 import cmd
@@ -14,7 +14,7 @@ class HBNBCommand(cmd.Cmd):
 
     def precmd(self, args):
         """method to preprocess the command input"""
-        commands = ['create', 'show', 'update', 'all', 'destroy']
+        commands = ['create', 'show', 'update', 'all', 'destroy', 'count']
         if '.' in args and '(' in args and ')' in args:
             clss = args.split('.')
             comand = clss[1].split('(')
@@ -28,6 +28,10 @@ class HBNBCommand(cmd.Cmd):
             if clss[0] in storage.class_arb() and comand[0] in commands:
                 args = comand[0] + ' ' + clss[0] + ' ' + arguments[0]
         return args
+
+    def do_count(self, args):
+        """ Method to count instances"""
+        pass
 
     def do_EOF(self, arg):
         """Type EOF to exit the command interpreter"""
