@@ -78,9 +78,10 @@ EOF  all  create  destroy  help  quit  show  update
         """Tests the help command."""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("help all")
-        s1 = "Prints the string representation of"
+        s1 = "\n      \nPrints the string representation of"
         s2 = "an instance based on the class name and id"
-        s = s1 + s2
+        s3 = "Exmaple: (hbnb) show User a8d30b54-af4d-401e-ba78-4c11c8294264"
+        s = s1 + s2 + s3
         self.assertEqual(s, f.getvalue())
 
     def test_help_update(self):
