@@ -1,14 +1,14 @@
 #!/usr/bin/python3
-"""My first Console"""
-from ast import Store
+"""My first console - the command interpreter"""
+
+
 import cmd
-from click import argument, prompt
 from models.base_model import BaseModel
 from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
-    """ Command Interpreter"""
+
     prompt = "(hbnb) "
 
     def precmd(self, args):
