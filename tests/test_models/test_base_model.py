@@ -6,7 +6,6 @@ from models import storage
 from models.engine.file_storage import FileStorage
 
 
-
 class BaseModelTests(unittest.TestCase):
     """ Suite of Console Tests """
 
