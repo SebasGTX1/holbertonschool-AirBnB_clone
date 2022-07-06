@@ -62,7 +62,7 @@ EOF  all  count  create  destroy  help  quit  show  update
         """Tests the help command."""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("help show")
-        s = "Prints the string representation of an instance base "+\
+        s = "Prints the string representation of an instance base " + \
             "on\n        the class name and id\n        \n"
         self.assertEqual(s, f.getvalue())
 
@@ -70,8 +70,8 @@ EOF  all  count  create  destroy  help  quit  show  update
         """Tests the help command."""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("help destroy")
-        s = "Deletes an instance based on the class name and "+\
-            "id\n        Exmaple: (hbnb) destroy User a8d30b54-af4d-"+\
+        s = "Deletes an instance based on the class name and " + \
+            "id\n        Exmaple: (hbnb) destroy User a8d30b54-af4d-" + \
             "401e-ba78-4c11c8294264\n        \n"
         self.assertEqual(s, f.getvalue())
 
@@ -79,7 +79,7 @@ EOF  all  count  create  destroy  help  quit  show  update
         """Tests the help command."""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("help all")
-        s = "Prints all string representation of "+\
+        s = "Prints all string representation of " + \
             "all instances\n        based or not on the class name\n        \n"
         self.assertEqual(s, f.getvalue())
 
