@@ -12,9 +12,6 @@ class FileStorage:
     __file_path = "file.json"
     __objects = {}
 
-    def __init__(self, *args, **kwargs):
-        """ Constructor method """
-
     def all(self):
         """ Public method to return all the objects previusly saved"""
         return FileStorage.__objects
@@ -60,9 +57,9 @@ class FileStorage:
         if os.path.exists(FileStorage.__file_path):
             with open(FileStorage.__file_path, "r",encoding='utf-8') as F:
                 my_dict = json.load(F)
-                for key, value in my_dict.items():
-                    my_dict[key] = class_arb[value["__class__"]](**value)
-                FileStorage.__objects = my_dict
+        for key, value in my_dict.items():
+            my_dict[key] = class_arb[value["__class__"]](**value)
+        FileStorage.__objects = my_dict
 
     def class_arb(self):
         """Returns a dictionary with the classes"""
