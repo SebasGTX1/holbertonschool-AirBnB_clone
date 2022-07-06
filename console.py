@@ -1,14 +1,14 @@
 #!/usr/bin/python3
-"""My first Console"""
-from ast import Store
+"""My first console - the command interpreter"""
+
+
 import cmd
-from click import argument, prompt
 from models.base_model import BaseModel
 from models import storage
 
 
 class HBNBCommand(cmd.Cmd):
-    """ Command Interpreter"""
+
     prompt = "(hbnb) "
 
     def precmd(self, args):
@@ -29,7 +29,7 @@ class HBNBCommand(cmd.Cmd):
         return args
 
     def do_count(self, args):
-        """ Method to count instances"""
+        """Method to count instances"""
         pass
 
     def do_EOF(self, arg):
@@ -37,7 +37,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_quit(self, arg):
-        """Type Exit to exit the command interpreter"""
+        """Type quit to exit the command interpreter"""
         return True
 
     def emptyline(self):
@@ -56,10 +56,8 @@ class HBNBCommand(cmd.Cmd):
             print(ins.id)
 
     def do_show(self, args):
-        """
-        Prints the string representation of an instance based on the
-        class name and id
-        Exmaple: (hbnb) show User a8d30b54-af4d-401e-ba78-4c11c8294264
+        """Prints the string representation of an instance base on
+        the class name and id
         """
         if not (args):
             print("** class name missing **")
@@ -78,8 +76,7 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
 
     def do_destroy(self, args):
-        """
-        Deletes an instance based on the class name and id
+        """Deletes an instance based on the class name and id
         Exmaple: (hbnb) destroy User a8d30b54-af4d-401e-ba78-4c11c8294264
         """
         if not (args):

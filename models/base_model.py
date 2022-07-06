@@ -11,6 +11,7 @@ from models import storage
 
 class BaseModel:
     """Class Base Model"""
+
     def __init__(self, *args, **kwargs):
         """Initialization"""
         if kwargs:
