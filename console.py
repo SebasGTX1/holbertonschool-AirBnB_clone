@@ -30,7 +30,12 @@ class HBNBCommand(cmd.Cmd):
 
     def do_count(self, args):
         """Method to count instances"""
-        pass
+        count = 0
+        for key, value in (storage.all()).items():
+            clss = value.__class__.__name__
+            if clss == args:
+                count += 1
+        print(count)
 
     def do_EOF(self, arg):
         """Type EOF to exit the command interpreter"""
