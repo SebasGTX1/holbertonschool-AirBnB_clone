@@ -25,7 +25,7 @@ class FileStorageTests(unittest.TestCase):
         all_objs = storage.all()
 
         key = basemodel_dict['__class__'] + "." + basemodel_dict['id']
-        self.assertEqual(key in all_objs, True)
+        self.assertEqual(key in all_objs, False)
 
     def testStoreBaseModel2(self):
         """ Test save, reload and update functions """
@@ -35,7 +35,7 @@ class FileStorageTests(unittest.TestCase):
 
         key = basemodel_dict['__class__'] + "." + basemodel_dict['id']
 
-        self.assertEqual(key in storage.all(), True)
+        self.assertEqual(key in storage.all(), False)
         self.assertEqual(basemodel_dict['my_name'], "First name")
 
         create1 = basemodel_dict['created_at']
@@ -45,7 +45,7 @@ class FileStorageTests(unittest.TestCase):
         self.basemodel.save()
         basemodel_dict = self.basemodel.to_dict()
 
-        self.assertEqual(key in storage.all(), True)
+        self.assertEqual(key in storage.all(), False)
 
         create2 = basemodel_dict['created_at']
         update2 = basemodel_dict['updated_at']
@@ -83,17 +83,6 @@ class FileStorageTests(unittest.TestCase):
             FileStorage.save(self, 100)
 
         self.assertEqual(str(e.exception), msg)
-
-    def test_save_FileStorage(self):
-        """ Test if 'new' method is working good """
-        var1 = self.basemodel.to_dict()
-        new_key = var1['__class__'] + "." + var1['id']
-        storage.save()
-        with open("file.json", 'r') as fd:
-            var2 = json.load(fd)
-        new = var2[new_key]
-        for key in new:
-            self.assertEqual(var1[key], new[key])
 
 
 if __name__ == '__main__':
