@@ -19,9 +19,9 @@ class FileStorageTests(unittest.TestCase):
 
     def testStoreBaseModel(self):
         """ Test save and reload functions """
-        self.basemodel.full_name = "BaseModel Instance"
-        self.basemodel.save()
-        basemodel_dict = self.basemodel.to_dict()
+        basemodel2 = BaseModel()
+        basemodel2.save()
+        basemodel_dict = basemodel2.to_dict()
         all_objs = storage.all()
 
         key = basemodel_dict['__class__'] + "." + basemodel_dict['id']
@@ -29,30 +29,31 @@ class FileStorageTests(unittest.TestCase):
 
     def testStoreBaseModel2(self):
         """ Test save, reload and update functions """
-        self.basemodel.my_name = "First name"
-        self.basemodel.save()
-        basemodel_dict = self.basemodel.to_dict()
+        basemodel3 = BaseModel()
+        basemodel3.my_name = "First name"
+        basemodel3.save()
+        basemodel3_dict = basemodel3.to_dict()
 
-        key = basemodel_dict['__class__'] + "." + basemodel_dict['id']
-
-        self.assertEqual(key in storage.all(), True)
-        self.assertEqual(basemodel_dict['my_name'], "First name")
-
-        create1 = basemodel_dict['created_at']
-        update1 = basemodel_dict['updated_at']
-
-        self.basemodel.my_name = "Second name"
-        self.basemodel.save()
-        basemodel_dict = self.basemodel.to_dict()
+        key = basemodel3_dict['__class__'] + "." + basemodel3_dict['id']
 
         self.assertEqual(key in storage.all(), True)
+        self.assertEqual(basemodel3_dict['my_name'], "First name")
 
-        create2 = basemodel_dict['created_at']
-        update2 = basemodel_dict['updated_at']
+        create1 = basemodel3_dict['created_at']
+        update1 = basemodel3_dict['updated_at']
+
+        basemodel3.my_name = "Second name"
+        basemodel3.save()
+        basemodel3_dict = basemodel3.to_dict()
+
+        self.assertEqual(key in storage.all(), True)
+
+        create2 = basemodel3_dict['created_at']
+        update2 = basemodel3_dict['updated_at']
 
         self.assertEqual(create1, create2)
         self.assertNotEqual(update1, update2)
-        self.assertEqual(basemodel_dict['my_name'], "Second name")
+        self.assertEqual(basemodel3_dict['my_name'], "Second name")
 
     def testHasAttributes(self):
         """verify if attributes exist"""
