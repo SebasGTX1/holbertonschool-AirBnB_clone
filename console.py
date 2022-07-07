@@ -23,7 +23,6 @@ class HBNBCommand(cmd.Cmd):
                 arguments[0] = ""
                 for at in arg_list:
                     arguments[0] += at
-                print(arguments[0])
             if clss[0] in storage.class_arb() and comand[0] in commands:
                 args = comand[0] + ' ' + clss[0] + ' ' + arguments[0]
         return args
