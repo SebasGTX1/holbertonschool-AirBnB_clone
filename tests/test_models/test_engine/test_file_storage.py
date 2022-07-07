@@ -85,6 +85,17 @@ class FileStorageTests(unittest.TestCase):
 
         self.assertEqual(str(e.exception), msg)
 
+    def test_save(self):
+        """Testing the 'save' method"""
+
+        Model = BaseModel()
+
+        Model.save()
+        self.assertTrue(os.path.exists("file.json"))
+        with open("file.json") as file:
+            to_load = json.load(file)
+        self.assertTrue(Model.to_dict() in to_load.values())
+
 
 if __name__ == '__main__':
     unittest.main()
