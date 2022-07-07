@@ -77,14 +77,6 @@ class FileStorageTests(unittest.TestCase):
         for key, value in storage.all().items():
             self.assertEqual(dobj[key].to_dict(), value.to_dict())
 
-    def testSave(self):
-        """ Check save self """
-        msg = "save() takes 1 positional argument but 2 were given"
-        with self.assertRaises(TypeError) as e:
-            FileStorage.save(self, 100)
-
-        self.assertEqual(str(e.exception), msg)
-
     def test_save(self):
         """Testing the 'save' method"""
 
