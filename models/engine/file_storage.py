@@ -55,7 +55,7 @@ class FileStorage:
 
         my_dict = {}
         if os.path.exists(FileStorage.__file_path):
-            with open(FileStorage.__file_path, "r",encoding='utf-8') as F:
+            with open(FileStorage.__file_path, "r", encoding='utf-8') as F:
                 my_dict = json.load(F)
         for key, value in my_dict.items():
             my_dict[key] = class_arb[value["__class__"]](**value)
