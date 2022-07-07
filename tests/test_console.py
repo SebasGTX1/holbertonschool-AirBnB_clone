@@ -155,13 +155,14 @@ EOF  all  count  create  destroy  help  quit  show  update
         from models.review import Review
 
         classes = {"BaseModel": BaseModel,
-                "User": User,
-                "State": State,
-                "City": City,
-                "Amenity": Amenity,
-                "Place": Place,
-                "Review": Review}
+                   "User": User,
+                   "State": State,
+                   "City": City,
+                   "Amenity": Amenity,
+                   "Place": Place,
+                   "Review": Review}
         return classes
+
 
 if __name__ == "__main__":
     unittest.main()
