@@ -173,12 +173,11 @@ EOF  all  count  create  destroy  help  quit  show  update
 
     def test_do_all_adv(self):
         """Tests quit commmand."""
-        for key, values in storage.all().items():
-            Instance = key()
-            with patch('sys.stdout', new=StringIO()) as f:
-                HBNBCommand().onecmd(f"{key}.all()")
-            msg = f.getvalue()
-            self.assertTrue(len(msg) != 0, True)
+        Instance = BaseModel()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"BaseModel.all()")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
 
 
 if __name__ == "__main__":
