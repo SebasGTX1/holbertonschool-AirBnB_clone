@@ -4,6 +4,7 @@ import unittest
 from models.base_model import BaseModel
 from models import storage
 from models.engine.file_storage import FileStorage
+import os
 import datetime
 
 
@@ -43,6 +44,13 @@ class BaseModelTests(unittest.TestCase):
 
         self.assertEqual(first_dict['created_at'], sec_dict['created_at'])
         self.assertNotEqual(first_dict['updated_at'], sec_dict['updated_at'])
+
+    def test_save(self):
+        """ Test that info is saved to file. """
+        new_object = BaseModel()
+        new_object.save()
+        with open("file.json", 'r') as f:
+            self.assertIn(new_object.id, f.read())
 
 
 if __name__ == '__main__':
