@@ -204,7 +204,7 @@ EOF  all  count  create  destroy  help  quit  show  update
         self.assertTrue(len(msg) != 0, True)
 
     def test_do_all_City(self):
-        """Tests quit commmand."""
+        """Tests all commmand."""
         Instance = City()
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd(f"City.all()")
@@ -221,6 +221,62 @@ EOF  all  count  create  destroy  help  quit  show  update
 
     def test_do_all_Place(self):
         """Tests all commmand."""
+        Instance = Place()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"Place.all()")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
+    def test_do_count_BaseModel(self):
+        """Tests count commmand."""
+        Instance = BaseModel()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"BaseModel.count()")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
+    def test_do_count_Review(self):
+        """Tests count commmand."""
+        Instance = Review()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"Review.count()")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
+    def test_do_count_User(self):
+        """Tests count commmand."""
+        Instance = User()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"User.count()")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
+    def test_do_count_State(self):
+        """Tests count commmand."""
+        Instance = State()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"State.count()")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
+    def test_do_count_City(self):
+        """Tests count commmand."""
+        Instance = City()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"City.count()")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
+    def test_do_count_Amenity(self):
+        """Tests count commmand."""
+        Instance = Amenity()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"Amenity.count()")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
+    def test_do_count_Place(self):
+        """Tests count commmand."""
         Instance = Place()
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd(f"Place.all()")
