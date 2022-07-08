@@ -10,7 +10,7 @@ For this project, we expect you to look at these concepts:
 * [AirBnB clone](https://intranet.hbtn.io/concepts/74)
 
 # Background Context
-Welcome to the AirBnB clone project! 
+Welcome to the AirBnB clone project!  
 
 Before starting, please read the [**AirBnB**](https://intranet.hbtn.io/rltoken/bw70gxOl1RHBKFAWAR2Y3w) concept page.
 
