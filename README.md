@@ -178,4 +178,6 @@ e6ee5344-04ef-454d-84e4-ba6fc613f1b4
 (hbnb) quit
 
 ```
-
+### Authors :fountain_pen:
+* Sebastian García - @SebasGTX1
+* Robert Ortega - @Robert-octavo
