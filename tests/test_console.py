@@ -7,6 +7,14 @@ import datetime
 from unittest.mock import patch
 import os
 from io import StringIO
+from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
+from models import storage
 
 
 class TestHBNBCommand(unittest.TestCase):
@@ -162,6 +170,15 @@ EOF  all  count  create  destroy  help  quit  show  update
                    "Place": Place,
                    "Review": Review}
         return classes
+
+    def test_do_all_adv(self):
+        """Tests quit commmand."""
+        for key, values in storage.all().items():
+            Instance = key()
+            with patch('sys.stdout', new=StringIO()) as f:
+                HBNBCommand().onecmd(f"{key}.all()")
+            msg = f.getvalue()
+            self.assertTrue(len(msg) != 0, True)
 
 
 if __name__ == "__main__":
