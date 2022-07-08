@@ -137,6 +137,8 @@ class HBNBCommand(cmd.Cmd):
             else:
                 argu += arg[1] + arg[2]
                 arg = argu.split()
+        else:
+            arg = args.split()
 
         if not (args):
             print("** class name missing **")
