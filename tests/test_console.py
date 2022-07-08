@@ -283,6 +283,62 @@ EOF  all  count  create  destroy  help  quit  show  update
         msg = f.getvalue()
         self.assertTrue(len(msg) != 0, True)
 
+    def test_do_show_BaseModel(self):
+        """Tests show commmand."""
+        Instance = BaseModel()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"BaseModel.show({Instance.id})")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
+    def test_do_show_Review(self):
+        """Tests show commmand."""
+        Instance = Review()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"Review.show({Instance.id})")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
+    def test_do_show_User(self):
+        """Tests show commmand."""
+        Instance = User()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"User.show({Instance.id})")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
+    def test_do_show_State(self):
+        """Tests show commmand."""
+        Instance = State()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"State.show({Instance.id})")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
+    def test_do_show_City(self):
+        """Tests show commmand."""
+        Instance = City()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"City.show({Instance.id})")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
+    def test_do_show_Amenity(self):
+        """Tests show commmand."""
+        Instance = Amenity()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"Amenity.show({Instance.id})")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
+    def test_do_show_Place(self):
+        """Tests show commmand."""
+        Instance = Place()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"Place.show({Instance.id})")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
 
 if __name__ == "__main__":
     unittest.main()
