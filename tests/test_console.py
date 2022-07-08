@@ -339,6 +339,62 @@ EOF  all  count  create  destroy  help  quit  show  update
         msg = f.getvalue()
         self.assertTrue(len(msg) != 0, True)
 
+    def test_do_destroy_BaseModel(self):
+        """Tests destroy commmand."""
+        Instance = BaseModel()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"BaseModel.destroy({Instance.id})")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
+    def test_do_destroy_Review(self):
+        """Tests destroy commmand."""
+        Instance = Review()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"Review.destroy({Instance.id})")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
+    def test_do_destroy_User(self):
+        """Tests destroy commmand."""
+        Instance = User()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"User.destroy({Instance.id})")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
+    def test_do_destroy_State(self):
+        """Tests destroy commmand."""
+        Instance = State()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"State.destroy({Instance.id})")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
+    def test_do_destroy_City(self):
+        """Tests destroy commmand."""
+        Instance = City()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"City.destroy({Instance.id})")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
+    def test_do_destroy_Amenity(self):
+        """Tests show commmand."""
+        Instance = Amenity()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"Amenity.destroy({Instance.id})")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
+    def test_do_destroy_Place(self):
+        """Tests destroy commmand."""
+        Instance = Place()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"Place.destroy({Instance.id})")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
 
 if __name__ == "__main__":
     unittest.main()
