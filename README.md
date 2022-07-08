@@ -112,8 +112,6 @@ But also in non-interactive mode: (like the Shell project in C)
 
 All tests should also pass in non-interactive mode: $ echo "python3 -m unittest discover tests" | bash
 
-![console](https://github.com/Robert-octavo/holbertonschool-AirBnB_clone/blob/master/img-readme/arb2a.png)
-
 ## Installation :hammer_and_wrench:
 Clone the repository and run the console.py
 ```
@@ -124,14 +122,14 @@ $ git clone https://github.com/Robert-octavo/holbertonschool-AirBnB_clone.git
 
 |   **Method**   |   **Description**   |
 | -------------- | --------------------- |
-|[create](./console.py) | Creates object of given class |
-|[show](./console.py) | Prints the string representation of an instance based on the class name and id |
-|[all](./console.py) | Prints all string representation of all instances based or not on the class name |
-|[update](./console.py) | Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file) |
-|[destroy](./console.py)| Deletes an instance based on the class name and id (save the change into the JSON file) |
+|[create](./console.py) | Creates object of the given class |
+|[show](./console.py) | shows an instance in dict form|
+|[all](./console.py) | shows all the instances in string representation |
+|[update](./console.py) | Updates an instance based on the class name and id by adding or updating attribute |
+|[destroy](./console.py)| Deletes an instance based on the class name and id |
 |[count](./console.py)| Retrieve the number of instances of a class |
-|[help](./console.py)| Prints information about specific command |
-|[quit/ EOF](./console.py)| Exit the program |
+|[help](./console.py)| Prints information about a specific command of the console|
+|[quit/ EOF](./console.py)| Exit the console |
 
 ###### Examples
 
