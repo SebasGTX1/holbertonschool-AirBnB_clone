@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 """My first console - the command interpreter"""
-
-
 import cmd
 from models.base_model import BaseModel
 from models import storage
@@ -80,7 +78,8 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
             else:
                 for key, values in storage.all().items():
-                    if arguments[1] == values.id:
+                    clss = values.__class__.__name__
+                    if arguments[1] == values.id and arguments[0] == clss:
                         print(values)
                         return
                 print("** no instance found **")
@@ -100,7 +99,8 @@ class HBNBCommand(cmd.Cmd):
                 print("** class doesn't exist **")
             else:
                 for key, values in storage.all().items():
-                    if arguments[1] == values.id:
+                    clss = values.__class__.__name__
+                    if arguments[1] == values.id and arguments[0] == clss:
                         del storage.all()[key]
                         storage.save()
                         return
