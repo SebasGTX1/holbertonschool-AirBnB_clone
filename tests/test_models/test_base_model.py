@@ -27,19 +27,19 @@ class BaseModelTests(unittest.TestCase):
 
     def testSave(self):
         """ Test for a BaseModel instance """
-        my_model = BaseModel()
-        my_model.first_name = "First"
-        my_model.save()
+        my_m = BaseModel()
+        my_m.first_name = "First"
+        my_m.save()
 
-        self.assertIsInstance(my_model.id, str)
-        self.assertIsInstance(my_model.created_at, datetime.datetime)
-        self.assertIsInstance(my_model.updated_at, datetime.datetime)
+        self.assertIsInstance(my_m.id, str)
+        self.assertIsInstance(my_m.created_at, datetime.datetime)
+        self.assertIsInstance(my_m.updated_at, datetime.datetime)
 
-        first_dict = my_model.to_dict()
+        first_dict = my_m.to_dict()
 
-        my_model.first_name = "Second"
-        my_model.save()
-        sec_dict = my_model.to_dict()
+        my_m.first_name = "Second"
+        my_m.save()
+        sec_dict = my_m.to_dict()
 
         self.assertEqual(first_dict['created_at'], sec_dict['created_at'])
         self.assertNotEqual(first_dict['updated_at'], sec_dict['updated_at'])
