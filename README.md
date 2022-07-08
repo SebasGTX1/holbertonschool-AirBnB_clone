@@ -155,3 +155,29 @@ bb4f4b81-7757-460b-9263-743c9ea6fef6
 (hbnb)
 
 ```
+
+###
+
+```
+./console.py
+(hbnb) User.create
+*** Unknown syntax: User.create
+(hbnb) User.create()
+e6ee5344-04ef-454d-84e4-ba6fc613f1b4
+(hbnb) User.all()
+["[User] (e6ee5344-04ef-454d-84e4-ba6fc613f1b4) {'id': 'e6ee5344-04ef-454d-84e4-ba6fc613f1b4', 'updated_at': datetime.datetime(2019, 11, 13, 17, 14, 1, 963404), 'created_at': datetime.datetime(2019, 11, 13, 17, 14, 1, 963373)}"]
+(hbnb) User.show()
+** instance id missing **
+(hbnb) User.show(e6ee5344-04ef-454d-84e4-ba6fc613f1b4)
+[User] (e6ee5344-04ef-454d-84e4-ba6fc613f1b4) {'id': 'e6ee5344-04ef-454d-84e4-ba6fc613f1b4', 'updated_at': datetime.datetime(2019, 11, 13, 17, 14, 1, 963404), 'created_at': datetime.datetime(2019, 11, 13, 17, 14, 1, 963373)}
+(hbnb) User.update("e6ee5344-04ef-454d-84e4-ba6fc613f1b4", "name", "Betty")
+['User', '"e6ee5344-04ef-454d-84e4-ba6fc613f1b4"', '"name"', '"Betty"']
+(hbnb) User.all()
+['[User] (e6ee5344-04ef-454d-84e4-ba6fc613f1b4) {\'"name"\': \'"Betty"\', \'id\': \'e6ee5344-04ef-454d-84e4-ba6fc613f1b4\', \'updated_at\': datetime.datetime(2019, 11, 13, 17, 14, 1, 963404), \'created_at\': datetime.datetime(2019, 11, 13, 17, 14, 1, 963373)}']
+(hbnb) User.destroy(e6ee5344-04ef-454d-84e4-ba6fc613f1b4)
+(hbnb) User.all()
+[]
+(hbnb) quit
+
+```
+
