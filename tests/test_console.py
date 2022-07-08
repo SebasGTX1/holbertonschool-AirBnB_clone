@@ -279,7 +279,7 @@ EOF  all  count  create  destroy  help  quit  show  update
         """Tests count commmand."""
         Instance = Place()
         with patch('sys.stdout', new=StringIO()) as f:
-            HBNBCommand().onecmd(f"Place.all()")
+            HBNBCommand().onecmd(f"Place.count()")
         msg = f.getvalue()
         self.assertTrue(len(msg) != 0, True)
 
