@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """My first console - the command interpreter"""
 import cmd
+import re
 from models.base_model import BaseModel
 from models import storage
 from models.user import User
@@ -22,11 +23,6 @@ class HBNBCommand(cmd.Cmd):
             clss = args.split('.')
             comand = clss[1].split('(')
             arguments = comand[1].split(')')
-            if ',' in arguments[0]:
-                arg_list = arguments[0].split(',')
-                arguments[0] = ""
-                for at in arg_list:
-                    arguments[0] += at
             if clss[0] in storage.class_arb() and comand[0] in commands:
                 args = comand[0] + ' ' + clss[0] + ' ' + arguments[0]
         return args
@@ -125,7 +121,23 @@ class HBNBCommand(cmd.Cmd):
         """Updates an instance based on the class name
         and id by adding or updating attribute
         """
-        arg = args.split(' ')
+        if ',' in args:
+            if '{' not in args:
+                arg = args.split(',')
+            else:
+                arg = args.split(',', 1)
+            class_id = arg[0].split()
+            argu = ""
+            argu += class_id[0] + f" {class_id[1]}"
+
+            if '{' in arg[1]:
+                argu += arg[1]
+                arg = argu.split(" ", 2)
+
+            else:
+                argu += arg[1] + arg[2]
+                arg = argu.split()
+
         if not (args):
             print("** class name missing **")
             return
@@ -138,16 +150,32 @@ class HBNBCommand(cmd.Cmd):
         if len(arg) == 2:
             print("** attribute name missing **")
             return
-        if len(arg) == 3:
+        if len(arg) == 3 and '{' not in arg[2]:
             print("** value missing **")
             return
-
-        for key, values in storage.all().items():
-            if arg[1] == values.id:
-                setattr(values, arg[2], arg[3])
-                storage.save()
-                return
-        print("** no instance found **")
+        if '{' not in arg[2]:
+            for key, values in storage.all().items():
+                if arg[1] == values.id:
+                    setattr(values, arg[2], arg[3])
+                    storage.save()
+                    return
+            print("** no instance found **")
+        else:
+            string = arg[2][1:-1]
+            update_list = string.split(',')
+            bol = 0
+            for item in update_list:
+                items = item.split(':')
+                attr = items[0]
+                val = items[1]
+                for key, values in storage.all().items():
+                    if arg[1] == values.id:
+                        setattr(values, attr, val)
+                        storage.save()
+                        bol = 1
+                        break
+            if bol == 0:
+                print("** no instance found **")
         return
 
 
