@@ -171,11 +171,59 @@ EOF  all  count  create  destroy  help  quit  show  update
                    "Review": Review}
         return classes
 
-    def test_do_all_adv(self):
-        """Tests quit commmand."""
+    def test_do_all_BaseModel(self):
+        """Tests all commmand."""
         Instance = BaseModel()
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd(f"BaseModel.all()")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
+    def test_do_all_Review(self):
+        """Tests all commmand."""
+        Instance = Review()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"Review.all()")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
+    def test_do_all_User(self):
+        """Tests all commmand."""
+        Instance = User()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"User.all()")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
+    def test_do_all_State(self):
+        """Tests all commmand."""
+        Instance = State()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"State.all()")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
+    def test_do_all_City(self):
+        """Tests quit commmand."""
+        Instance = City()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"City.all()")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
+    def test_do_all_Amenity(self):
+        """Tests all commmand."""
+        Instance = Amenity()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"Amenity.all()")
+        msg = f.getvalue()
+        self.assertTrue(len(msg) != 0, True)
+
+    def test_do_all_Place(self):
+        """Tests all commmand."""
+        Instance = Place()
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"Place.all()")
         msg = f.getvalue()
         self.assertTrue(len(msg) != 0, True)
 
