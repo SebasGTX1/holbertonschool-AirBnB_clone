@@ -5,8 +5,13 @@ header {
     border-bottom: 1px solid#CCCCCC;
 }
 
-header img {
-    align-items: left;
+.div_container {
+    position: relative;
+}
+.div_center {
     margin-left: 20px;
-    margin-top: auto;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-0%);
+    transform: translateY(9%);
 }
