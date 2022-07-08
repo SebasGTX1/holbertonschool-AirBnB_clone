@@ -399,55 +399,55 @@ EOF  all  count  create  destroy  help  quit  show  update
         """Tests update commmand."""
         Instance = BaseModel()
         with patch('sys.stdout', new=StringIO()) as f:
-            HBNBCommand().onecmd(f"BaseModel.update(, id, att, name)")
+            HBNBCommand().onecmd(f"BaseModel.update(, id, att, value)")
         msg = f.getvalue()
         self.assertTrue(len(msg) != 0, True)
 
-    def test_do_show_Review(self):
-        """Tests show commmand."""
+    def test_do_update_Review(self):
+        """Tests value commmand."""
         Instance = Review()
         with patch('sys.stdout', new=StringIO()) as f:
-            HBNBCommand().onecmd(f"Review.show({Instance.id})")
+            HBNBCommand().onecmd(f"Review.update(id, att, value)")
         msg = f.getvalue()
         self.assertTrue(len(msg) != 0, True)
 
-    def test_do_show_User(self):
-        """Tests show commmand."""
+    def test_do_update_User(self):
+        """Tests update commmand."""
         Instance = User()
         with patch('sys.stdout', new=StringIO()) as f:
-            HBNBCommand().onecmd(f"User.show({Instance.id})")
+            HBNBCommand().onecmd(f"User.update(id, att, value)")
         msg = f.getvalue()
         self.assertTrue(len(msg) != 0, True)
 
-    def test_do_show_State(self):
-        """Tests show commmand."""
+    def test_do_update_State(self):
+        """Tests update commmand."""
         Instance = State()
         with patch('sys.stdout', new=StringIO()) as f:
-            HBNBCommand().onecmd(f"State.show({Instance.id})")
+            HBNBCommand().onecmd(f"State.update(id, att, value)")
         msg = f.getvalue()
         self.assertTrue(len(msg) != 0, True)
 
-    def test_do_show_City(self):
-        """Tests show commmand."""
+    def test_do_update_City(self):
+        """Tests update commmand."""
         Instance = City()
         with patch('sys.stdout', new=StringIO()) as f:
-            HBNBCommand().onecmd(f"City.show({Instance.id})")
+            HBNBCommand().onecmd(f"City.update(id, att, value)")
         msg = f.getvalue()
         self.assertTrue(len(msg) != 0, True)
 
-    def test_do_show_Amenity(self):
-        """Tests show commmand."""
+    def test_do_update_Amenity(self):
+        """Tests update commmand."""
         Instance = Amenity()
         with patch('sys.stdout', new=StringIO()) as f:
-            HBNBCommand().onecmd(f"Amenity.show({Instance.id})")
+            HBNBCommand().onecmd(f"Amenity.update(id, att, value)")
         msg = f.getvalue()
         self.assertTrue(len(msg) != 0, True)
 
-    def test_do_show_Place(self):
-        """Tests show commmand."""
+    def test_do_update_Place(self):
+        """Tests update commmand."""
         Instance = Place()
         with patch('sys.stdout', new=StringIO()) as f:
-            HBNBCommand().onecmd(f"Place.show({Instance.id})")
+            HBNBCommand().onecmd(f"Place.update(id, att, value)")
         msg = f.getvalue()
         self.assertTrue(len(msg) != 0, True)
 
