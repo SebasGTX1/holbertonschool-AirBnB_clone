@@ -7,7 +7,7 @@ footer {
     border-top-width: 1px;
     border-top-style: solid;
     border-top-color: #CCCCCC;
-    position:relative;
+    position:fixed;
     display:flex;
     align-items:center;
     justify-content: center;
